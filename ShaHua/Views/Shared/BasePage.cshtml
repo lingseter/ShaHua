@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @*width=device-width :页面初始化时宽度为设备的宽度,initial-scale=1 ：比例为1比1，无缩放*@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Css/shahua.css" rel="stylesheet" />
+</head>
+<body>
+    <header></header>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    <footer></footer>
+    <script src="~/Js/jquery-2.2.3.js"></script>
+    <script src="~/Js/angular.js"></script>
+    <script src="~/Js/bootstrap.js"></script>
+    <script src="~/Js/shahua.js"></script>
+</body>
+</html>

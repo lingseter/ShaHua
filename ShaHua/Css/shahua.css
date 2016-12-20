@@ -1,0 +1,17 @@
+﻿.login {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-login {
+    padding: 15px;
+}
+
+.form-login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    margin-bottom: 10px;
+}

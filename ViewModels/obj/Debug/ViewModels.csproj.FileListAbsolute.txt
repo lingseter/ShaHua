@@ -1,0 +1,5 @@
+D:\测试项目\ShaHua\ViewModels\bin\Debug\ViewModels.dll
+D:\测试项目\ShaHua\ViewModels\bin\Debug\ViewModels.pdb
+D:\测试项目\ShaHua\ViewModels\obj\Debug\ViewModels.dll
+D:\测试项目\ShaHua\ViewModels\obj\Debug\ViewModels.pdb
+D:\测试项目\ShaHua\ViewModels\obj\Debug\ViewModels.csprojResolveAssemblyReference.cache

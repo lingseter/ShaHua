@@ -1,0 +1,9 @@
+D:\测试项目\ShaHua\LangPackage\bin\Debug\LangPackage.dll
+D:\测试项目\ShaHua\LangPackage\bin\Debug\LangPackage.pdb
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.csprojResolveAssemblyReference.cache
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.en-us.resources
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.zh_cn.resources
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.zh_tw.resources
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.csproj.GenerateResource.Cache
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.dll
+D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.pdb

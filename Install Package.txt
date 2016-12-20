@@ -1,0 +1,9 @@
+Dependency Injection
+	Install-Package Unity
+	Install-Package Unity.AspNet.WebApi
+Excel Operation
+	Install-Package NPOI
+Log Helper
+	Install-Package log4net
+Entity Framework
+	Install-Package EntityFramework

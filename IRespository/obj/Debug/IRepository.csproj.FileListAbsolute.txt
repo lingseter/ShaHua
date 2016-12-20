@@ -1,0 +1,7 @@
+D:\测试项目\ShaHua\IRespository\bin\Debug\IRepository.dll
+D:\测试项目\ShaHua\IRespository\bin\Debug\IRepository.pdb
+D:\测试项目\ShaHua\IRespository\bin\Debug\DataModels.dll
+D:\测试项目\ShaHua\IRespository\bin\Debug\DataModels.pdb
+D:\测试项目\ShaHua\IRespository\obj\Debug\IRepository.csprojResolveAssemblyReference.cache
+D:\测试项目\ShaHua\IRespository\obj\Debug\IRepository.dll
+D:\测试项目\ShaHua\IRespository\obj\Debug\IRepository.pdb
