@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{E3F07F16-687
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{78FE3E58-43E1-4B65-8A52-3A1B03D41348}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRepositories", "IRespository\IRepositories.csproj", "{FFA22753-8E6D-4B84-B052-DDE7C9F53F31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRepositories", "IRespositories\IRepositories.csproj", "{FFA22753-8E6D-4B84-B052-DDE7C9F53F31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2EE99ECA-8852-4113-8440-CCF4DC361BCB}"
 EndProject
@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShaHua.Tests", "UnitTest\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LangPackage", "LangPackage\LangPackage.csproj", "{4D075E69-CDDC-44AC-9EF0-2A46FFABBF71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repository\Repositories.csproj", "{3BD31614-F36E-4754-BBFE-69C4072BF160}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{3BD31614-F36E-4754-BBFE-69C4072BF160}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{42680C33-2364-4E33-AB67-EB367E4D8C68}"
 EndProject
