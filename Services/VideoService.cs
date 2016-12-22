@@ -4,14 +4,15 @@ using IServices;
 using ViewModels;
 using Utility;
 using System.Threading.Tasks;
+using IRepositories;
 
 namespace Services
 {
     public class VideoService : IVideoService
     {
-        private IRepository.IVideoRepository iVideoRepository;
+        private IVideoRepository iVideoRepository;
 
-        public VideoService(IRepository.IVideoRepository iVideoRepository)
+        public VideoService(IVideoRepository iVideoRepository)
         {
             this.iVideoRepository = iVideoRepository;
         }
@@ -30,7 +31,7 @@ namespace Services
         public Task<List<Video>> GetList(string filter = null, int start = 0, int pageLimit = 10)
         {
             List<Video> list = new List<Video>();
-            List<DataModels.Video> videoList = iVideoRepository.GetList(filter, start, pageLimit).Result;
+            List<DataModels.Video> videoList = iVideoRepository.GetList(filter, start, pageLimit).Result as List<DataModels.Video>;
             if (videoList != null && videoList.Count > 0)
             {
                 foreach (var v in videoList)
@@ -42,16 +43,14 @@ namespace Services
             return Task.FromResult(list);
         }
 
-        public Task<Video> GetVideoById(Guid id)
+        public Task<Video> GetById(string id)
         {
-
-            DataModels.Video video = iVideoRepository.GetVideoById(id).Result;
+            DataModels.Video video = iVideoRepository.GetById(id).Result;
             return Task.FromResult(Common.Mapper<Video, DataModels.Video>(video));
         }
 
         public Task<bool> Update(Video video)
         {
-
             DataModels.Video v = Common.Mapper<DataModels.Video, Video>(video);
             return iVideoRepository.Update(v);
         }

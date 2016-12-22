@@ -7,3 +7,12 @@ D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.zh_tw.resources
 D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.csproj.GenerateResource.Cache
 D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.dll
 D:\测试项目\ShaHua\LangPackage\obj\Debug\LangPackage.pdb
+D:\ShaHua\LangPackage\bin\Debug\LangPackage.dll
+D:\ShaHua\LangPackage\bin\Debug\LangPackage.pdb
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.csprojResolveAssemblyReference.cache
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.en-us.resources
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.zh_cn.resources
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.zh_tw.resources
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.csproj.GenerateResource.Cache
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.dll
+D:\ShaHua\LangPackage\obj\Debug\LangPackage.pdb

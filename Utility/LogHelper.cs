@@ -8,7 +8,7 @@ namespace Utility
         #region Constants
         const string SPLIT_CHARS = " ";
         private static log4net.ILog logScope = log4net.LogManager.GetLogger("Scope");
-        private static log4net.ILog logCommon = log4net.LogManager.GetLogger("Common");
+        private static log4net.ILog logInfo = log4net.LogManager.GetLogger("Info");
         private static log4net.ILog logException = log4net.LogManager.GetLogger("Exception");
         #endregion
 
@@ -41,7 +41,7 @@ namespace Utility
         {
             if (WebConfig.IsDebug)
             {
-                logCommon.Info(string.Join(SPLIT_CHARS, data));
+                logInfo.Info(string.Join(SPLIT_CHARS, data));
             }
         }
 

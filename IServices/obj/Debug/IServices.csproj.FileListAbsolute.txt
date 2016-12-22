@@ -5,3 +5,10 @@ D:\测试项目\ShaHua\IServices\bin\Debug\ViewModels.pdb
 D:\测试项目\ShaHua\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
 D:\测试项目\ShaHua\IServices\obj\Debug\IServices.dll
 D:\测试项目\ShaHua\IServices\obj\Debug\IServices.pdb
+D:\ShaHua\IServices\bin\Debug\IServices.dll
+D:\ShaHua\IServices\bin\Debug\IServices.pdb
+D:\ShaHua\IServices\bin\Debug\ViewModels.dll
+D:\ShaHua\IServices\bin\Debug\ViewModels.pdb
+D:\ShaHua\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
+D:\ShaHua\IServices\obj\Debug\IServices.dll
+D:\ShaHua\IServices\obj\Debug\IServices.pdb

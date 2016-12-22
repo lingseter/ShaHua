@@ -1,36 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using DataModels;
-using IRepository;
+﻿using DataModels;
+using IRepositories;
 
-namespace Repository
+namespace Repositories
 {
-    public class VideoRepository : IVideoRepository
+    public class VideoRepository : DataRepository<Video>, IVideoRepository
     {
-        public Task<bool> Add(Video photo)
+        public VideoRepository()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Delete(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Video>> GetList(string filter = null, int start = 0, int pageLimit = 10)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Video> GetVideoById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Update(Video photo)
-        {
-            throw new NotImplementedException();
+            TableName = "Video";
         }
     }
 }

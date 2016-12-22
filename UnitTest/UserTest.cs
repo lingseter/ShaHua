@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Practices.Unity;
 using System.Collections.Generic;
-using IR = IRepository;
+using IR = IRepositories;
 using IS = IServices;
 using Services;
 using ViewModels;

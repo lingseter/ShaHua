@@ -49,9 +49,9 @@
       <Project>{52171033-1eb2-40f3-8639-87b8bea6dd3c}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IRespository\IRepository.csproj">
+    <ProjectReference Include="..\IRespository\IRepositories.csproj">
       <Project>{ffa22753-8e6d-4b84-b052-dde7c9f53f31}</Project>
-      <Name>IRepository</Name>
+      <Name>IRepositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\IServices\IServices.csproj">
       <Project>{8dd7a700-b6cf-428b-8b2f-34d1c747824d}</Project>

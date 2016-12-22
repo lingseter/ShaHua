@@ -212,17 +212,17 @@
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IRespository\IRepository.csproj">
+    <ProjectReference Include="..\IRespository\IRepositories.csproj">
       <Project>{ffa22753-8e6d-4b84-b052-dde7c9f53f31}</Project>
-      <Name>IRepository</Name>
+      <Name>IRepositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\IServices\IServices.csproj">
       <Project>{8dd7a700-b6cf-428b-8b2f-34d1c747824d}</Project>
       <Name>IServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Repository\Repository.csproj">
+    <ProjectReference Include="..\Repository\Repositories.csproj">
       <Project>{3bd31614-f36e-4754-bbfe-69c4072bf160}</Project>
-      <Name>Repository</Name>
+      <Name>Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{42680c33-2364-4e33-ab67-eb367e4d8c68}</Project>

@@ -59,6 +59,7 @@
     <Compile Include="Common.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="CryptHelper.cs" />
+    <Compile Include="HttpMocker.cs" />
     <Compile Include="WebConfig.cs" />
     <Compile Include="EmailHelper.cs" />
     <Compile Include="Enums.cs" />

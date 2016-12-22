@@ -1,0 +1,16 @@
+D:\ShaHua\Repository\bin\Debug\Repositories.dll
+D:\ShaHua\Repository\bin\Debug\Repositories.pdb
+D:\ShaHua\Repository\bin\Debug\Dapper.dll
+D:\ShaHua\Repository\bin\Debug\DataModels.dll
+D:\ShaHua\Repository\bin\Debug\IRepositories.dll
+D:\ShaHua\Repository\bin\Debug\Utility.dll
+D:\ShaHua\Repository\bin\Debug\log4net.dll
+D:\ShaHua\Repository\bin\Debug\Newtonsoft.Json.dll
+D:\ShaHua\Repository\bin\Debug\DataModels.pdb
+D:\ShaHua\Repository\bin\Debug\IRepositories.pdb
+D:\ShaHua\Repository\bin\Debug\Utility.pdb
+D:\ShaHua\Repository\bin\Debug\Dapper.xml
+D:\ShaHua\Repository\bin\Debug\log4net.xml
+D:\ShaHua\Repository\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+D:\ShaHua\Repository\obj\Debug\Repositories.dll
+D:\ShaHua\Repository\obj\Debug\Repositories.pdb

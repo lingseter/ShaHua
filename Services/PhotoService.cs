@@ -4,14 +4,15 @@ using ViewModels;
 using Utility;
 using System;
 using System.Threading.Tasks;
+using IRepositories;
 
 namespace Services
 {
     public class PhotoService : IPhotoService
     {
-        private IRepository.IPhotoRepository iPhotoRepository;
+        private IPhotoRepository iPhotoRepository;
 
-        public PhotoService(IRepository.IPhotoRepository iPhotoRepository)
+        public PhotoService(IPhotoRepository iPhotoRepository)
         {
             this.iPhotoRepository = iPhotoRepository;
         }
@@ -19,7 +20,7 @@ namespace Services
         public Task<List<Photo>> GetList(string filter, int start, int pageLimit)
         {
             List<Photo> list = new List<Photo>();
-            List<DataModels.Photo> photoList = iPhotoRepository.GetList(filter, start, pageLimit).Result;
+            List<DataModels.Photo> photoList = iPhotoRepository.GetList(filter, start, pageLimit).Result as List<DataModels.Photo>;
             if (photoList != null && photoList.Count > 0)
             {
                 foreach (var p in photoList)
@@ -31,9 +32,9 @@ namespace Services
             return Task.FromResult(list);
         }
 
-        public Task<Photo> GetPhotoById(Guid id)
+        public Task<Photo> GetById(string id)
         {
-            DataModels.Photo photo = iPhotoRepository.GetPhotoById(id).Result;
+            DataModels.Photo photo = iPhotoRepository.GetById(id).Result;
             return Task.FromResult(Common.Mapper<Photo, DataModels.Photo>(photo));
         }
 

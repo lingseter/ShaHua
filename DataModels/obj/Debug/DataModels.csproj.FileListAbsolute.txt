@@ -3,3 +3,8 @@ D:\测试项目\ShaHua\DataModels\bin\Debug\DataModels.pdb
 D:\测试项目\ShaHua\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
 D:\测试项目\ShaHua\DataModels\obj\Debug\DataModels.dll
 D:\测试项目\ShaHua\DataModels\obj\Debug\DataModels.pdb
+D:\ShaHua\DataModels\bin\Debug\DataModels.dll
+D:\ShaHua\DataModels\bin\Debug\DataModels.pdb
+D:\ShaHua\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
+D:\ShaHua\DataModels\obj\Debug\DataModels.dll
+D:\ShaHua\DataModels\obj\Debug\DataModels.pdb

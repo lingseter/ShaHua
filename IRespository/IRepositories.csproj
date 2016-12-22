@@ -7,8 +7,8 @@
     <ProjectGuid>{FFA22753-8E6D-4B84-B052-DDE7C9F53F31}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IRepository</RootNamespace>
-    <AssemblyName>IRepository</AssemblyName>
+    <RootNamespace>IRepositories</RootNamespace>
+    <AssemblyName>IRepositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepository.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="IVideoRepository.cs" />
     <Compile Include="IPhotoRepository.cs" />

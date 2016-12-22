@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using DataModels;
+﻿using DataModels;
 using System.Threading.Tasks;
 
-namespace IRepository
+namespace IRepositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<User>
     {
-        Task<List<User>> GetList(string filter = null, int start = 0, int pageLimit = 10);
-
-        Task<User> FindByName(string name);
-
-        Task<bool> AddAsync(User user);
-
-        Task<bool> UpdateAsync(User user);
-
-        Task<bool> DeleteAsync(Guid id);
-
-        Task<User> FindByIdAsync(Guid id);
-
+        Task<User> GetByName(string name);
     }
 }

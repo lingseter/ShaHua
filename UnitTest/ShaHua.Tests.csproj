@@ -75,9 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IRespository\IRepository.csproj">
+    <ProjectReference Include="..\IRespository\IRepositories.csproj">
       <Project>{ffa22753-8e6d-4b84-b052-dde7c9f53f31}</Project>
-      <Name>IRepository</Name>
+      <Name>IRepositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\IServices\IServices.csproj">
       <Project>{8DD7A700-B6CF-428B-8B2F-34D1C747824D}</Project>

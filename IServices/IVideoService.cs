@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using ViewModels;
+﻿using ViewModels;
 
 namespace IServices
 {
-    public interface IVideoService
+    public interface IVideoService : IService<Video>
     {
-        Task<List<Video>> GetList(string filter = null, int start = 0, int pageLimit = 10);
-
-        Task<Video> GetVideoById(Guid id);
-
-        Task<bool> Add(Video video);
-
-        Task<bool> Delete(string id);
-
-        Task<bool> Update(Video video);
     }
 }

@@ -33,7 +33,7 @@ namespace ShaHua.Api
         public async Task<bool> Login(string name, string pwd)
         {
             PasswordVerificationResult result;
-            User user = await iUserService.FindByName(name);
+            User user = await iUserService.GetByName(name);
             if (user != null)
             {
                 IPasswordHasher passwordHasher = new PasswordHasher();
@@ -56,19 +56,19 @@ namespace ShaHua.Api
         [HttpPost]
         public async Task<bool> Add([FromBody]User user)
         {
-            return await iUserService.AddAsync(user);
+            return await iUserService.Add(user);
         }
 
         [HttpPost]
         public async Task<bool> Update([FromBody]User user)
         {
-            return await iUserService.UpdateAsync(user);
+            return await iUserService.Update(user);
         }
 
         [HttpGet]
         public async Task<bool> Delete(Guid id)
         {
-            return await iUserService.DeleteAsync(id);
+            return await iUserService.Delete(id.ToString());
         }
 
         private void SignInAsync(User user, bool isPersistent)

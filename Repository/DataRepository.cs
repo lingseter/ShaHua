@@ -6,138 +6,132 @@ using Dapper;
 using Utility;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
+using IRepositories;
 
-namespace Repository
+namespace Repositories
 {
-    public class DataRepository
+    public class DataRepository<T> : IRepository<T> where T : class
     {
-        public static List<T> GetList<T>(string storeProc, string tableName, string filter = "", int start = 0, int pageLimit = 10)
+        public string TableName { get; set; }
+
+        public Task<T> GetById(string id)
         {
+            string storeProc = "GetById";
             try
             {
                 using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
                 {
                     db.Open();
-                    return db.Query<T>(storeProc, new { tableName, filter, start, pageLimit }, commandType: CommandType.StoredProcedure).AsList();
+                    return db.QueryFirstOrDefaultAsync<T>(storeProc, new { TableName, id }, commandType: CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)
             {
-                LogHelper.LogException(string.Format("GetList Fail with params:storeProce={0},tableName={1},filter={2}", storeProc, tableName, filter), ex);
-                return null;
+                LogHelper.LogException(string.Format("Find Fail with params:tableName={0},id={1},storeProc={2}", TableName, id, storeProc), ex);
+                return Task.FromResult(default(T));//如果T是引用类型返回null,如果是值类型返回0
             }
         }
 
-        public static T Find<T>(string tableName, Guid id)
+        public Task<IEnumerable<T>> GetList(string filter = null, int start = 0, int pageLimit = 10)
         {
+            string storeProc = "GetPagingList";
             try
             {
                 using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
                 {
                     db.Open();
-                    string queryString = string.Format("SELECT * FROM {0} WHERE Id = @Id", tableName);
-                    return db.QuerySingleOrDefault<T>(queryString, new { id });
+                    return db.QueryAsync<T>(storeProc, new { TableName, filter, start, pageLimit }, commandType: CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)
             {
-                LogHelper.LogException(string.Format("Find Fail with params:tableName={0},id={1}", tableName, id.ToString()), ex);
-                return default(T);//如果T是引用类型返回null,如果是值类型返回0
+                LogHelper.LogException(string.Format("GetList Fail with params:storeProce={0},tableName={1},filter={2}", storeProc, TableName, filter), ex);
+                return Task.FromResult(default(IEnumerable<T>));//如果T是引用类型返回null,如果是值类型返回0
             }
         }
 
-        public static T Find<T>(string tableName, string filter)
+        public Task<bool> Add(T entity)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
                 {
                     db.Open();
-                    string queryString = string.Format("SELECT * FROM {0} WHERE {1}", tableName, filter);
-                    return db.QueryFirstOrDefault<T>(queryString);
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.LogException(string.Format("Find Fail with params:tableName={0},filter={1}", tableName, filter), ex);
-                return default(T);
-            }
-        }
-
-        public static int Update<T>(T t)
-        {
-            try
-            {
-                using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
-                {
-                    db.Open();
-                    string tableName = t.ToString();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("UPDATE " + tableName + " SET");
-                    var type = t.GetType();
-                    PropertyInfo[] properties = type.GetProperties();
-                    foreach (PropertyInfo sP in properties)
-                    {
-                        if (sP.GetValue(t) != null)
-                            sb.Append(" " + sP.Name + "=@" + sP.Name);
-                    }
+                    sb.Append("INSERT INTO " + TableName + " SET");
+                    GetEntityString(entity, sb);
                     sb.Append(" WHERE Id = @Id");
-                    int rowsAffected = db.Execute(sb.ToString(), t);
-                    return rowsAffected;
+                    bool result = db.ExecuteAsync(sb.ToString(), entity).Result > 0;
+                    return Task.FromResult(result);
                 }
             }
             catch (Exception ex)
             {
-                LogHelper.LogException("Update Fail with param:t=" + t.ToString(), ex);
-                return -1;
+                LogHelper.LogException("Add Fail with param:t=" + entity.ToString(), ex);
+                return Task.FromResult(false);
             }
         }
 
-        public static int Add<T>(T t)
+        public Task<bool> AddRange(IEnumerable<T> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Delete(string id)
+        {
+            string storeProc = "DeleteById";
+            try
+            {
+                using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
+                {
+                    db.Open();
+                    bool result = db.ExecuteAsync(storeProc, new { TableName, id }, commandType: CommandType.StoredProcedure).Result > 0;
+                    return Task.FromResult(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.LogException(string.Format("Delete Fail with params:tableName={0},id={1},storeProc={2}", TableName, id, storeProc), ex);
+                return Task.FromResult(false);
+            }
+        }
+
+        public Task<bool> DeleteRange(IEnumerable<string> idList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Update(T entity)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
                 {
                     db.Open();
-                    string tableName = t.ToString();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("INSERT INTO " + tableName + " SET");
-                    var type = t.GetType();
-                    PropertyInfo[] properties = type.GetProperties();
-                    foreach (PropertyInfo sP in properties)
-                    {
-                        if (sP.GetValue(t) != null)
-                            sb.Append(" " + sP.Name + "=@" + sP.Name);
-                    }
+                    sb.Append("UPDATE " + TableName + " SET");
+                    GetEntityString(entity, sb);
                     sb.Append(" WHERE Id = @Id");
-                    int rowsAffected = db.Execute(sb.ToString(), t);
-                    return rowsAffected;
+                    bool result = db.ExecuteAsync(sb.ToString(), entity).Result > 0;
+                    return Task.FromResult(result);
                 }
             }
             catch (Exception ex)
             {
-                LogHelper.LogException("Add Fail with param:t=" + t.ToString(), ex);
-                return -1;
+                LogHelper.LogException("Update Fail with param:t=" + entity.ToString(), ex);
+                return Task.FromResult(false);
             }
         }
 
-        public static int Delete(string tableName, Guid id)
+        private static void GetEntityString(T entity, StringBuilder sb)
         {
-            try
+            var type = entity.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (PropertyInfo sP in properties)
             {
-                using (IDbConnection db = new SqlConnection(WebConfig.ConnectionString))
-                {
-                    db.Open();
-                    string queryString = string.Format("DELETE FROM {0} WHERE id ='{1}'", tableName, id);
-                    int rowsAffected =  db.Execute(queryString);
-                    return rowsAffected;
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.LogException(string.Format("Delete Fail with params:tableName={0},id={1}", tableName, id.ToString()), ex);
-                return -1;
+                if (sP.GetValue(entity) != null)
+                    sb.Append(" " + sP.Name + "=@" + sP.Name);
             }
         }
     }

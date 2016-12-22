@@ -4,54 +4,49 @@ using ViewModels;
 using Utility;
 using System;
 using System.Threading.Tasks;
+using IRepositories;
 
 namespace Services
 {
     public class UserService : IUserService
     {
-        private IRepository.IUserRepository iUserRepository;
+        private IUserRepository iUserRepository;
 
-        public UserService(IRepository.IUserRepository iUserRepository)
+        public UserService(IUserRepository iUserRepository)
         {
             this.iUserRepository = iUserRepository;
         }
 
-        public Task<bool> AddAsync(User user)
+        public Task<bool> Add(User user)
         {
-            return iUserRepository.AddAsync(Common.Mapper<DataModels.User, User>(user));
+            return iUserRepository.Add(Common.Mapper<DataModels.User, User>(user));
         }
 
-        public Task<bool> DeleteAsync(Guid id)
+        public Task<bool> Delete(string id)
         {
-            return iUserRepository.DeleteAsync(id);
+            return iUserRepository.Delete(id);
         }
 
-        public Task<User> FindByIdAsync(Guid id)
+        public Task<User> GetById(string id)
         {
-            DataModels.User userData = iUserRepository.FindByIdAsync(id).Result;
+            DataModels.User userData = iUserRepository.GetById(id).Result;
             if (userData != null)
             {
-                User user = Common.Mapper<User, DataModels.User>(iUserRepository.FindByIdAsync(id).Result);
+                User user = Common.Mapper<User, DataModels.User>(iUserRepository.GetById(id).Result);
                 return Task.FromResult(user);
             }
             return Task.FromResult<User>(null);
         }
 
-        public Task<User> FindByName(string name)
+        public Task<User> GetByName(string Name)
         {
-            DataModels.User userData = iUserRepository.FindByName(name).Result;
-            if (userData != null)
-            {
-                User user = Common.Mapper<User, DataModels.User>(userData);
-                return Task.FromResult(user);
-            }
-            return Task.FromResult<User>(null);
+            throw new NotImplementedException();
         }
 
         public Task<List<User>> GetList(string filter = null, int start = 0, int pageLimit = 10)
         {
             List<User> userList = null;
-            List<DataModels.User> userDataList = iUserRepository.GetList(filter, start, pageLimit).Result;
+            List<DataModels.User> userDataList = iUserRepository.GetList(filter, start, pageLimit).Result as List<DataModels.User>;
             if (userDataList != null && userDataList.Count > 0)
             {
                 userList = new List<User>();
@@ -63,9 +58,9 @@ namespace Services
             return Task.FromResult(userList);
         }
 
-        public Task<bool> UpdateAsync(User user)
+        public Task<bool> Update(User user)
         {
-            return iUserRepository.UpdateAsync(Common.Mapper<DataModels.User, User>(user));
+            return iUserRepository.Update(Common.Mapper<DataModels.User, User>(user));
         }
     }
 }
