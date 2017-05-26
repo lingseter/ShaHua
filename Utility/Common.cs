@@ -26,7 +26,7 @@ namespace Utility
             }
             catch (Exception ex)
             {
-                LogHelper.LogException("mapper object fail ", ex);
+                LogHelper.LogException("mapper object fail ！", ex);
             }
             return d;
         }
